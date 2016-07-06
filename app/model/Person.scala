@@ -1,11 +1,12 @@
 package model
 
+import play.api.libs.json.Json
+
 /**
   * Created by Master on 7/5/16.
   * */
-class Person(val n:String, val a:Int) {
+case class Person(name:String)
 
-  var name : String = n;
-  var age : Int = a;
-
+object Person {
+  implicit val personFormat = Json.format[Person]
 }
