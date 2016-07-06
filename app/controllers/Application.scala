@@ -15,7 +15,7 @@ class Application extends Controller {
   }
 
 
-  val personForm : Form[Person] = Form {
+  val personForm: Form[Person] = Form {
     mapping(
       "name" -> text,
       "age" -> text
@@ -24,8 +24,9 @@ class Application extends Controller {
 
   def addPerson = Action { implicit request =>
     val person = personForm.bindFromRequest.get
-    DB.save(person)
-
+    if (!person.name.isEmpty && !person.age.isEmpty()) {
+      DB.save(person)
+    }
     Redirect(routes.Application.index())
   }
 
