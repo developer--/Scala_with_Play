@@ -1,8 +1,14 @@
 @(message: String)
 
 @main("გაუმარჯოს გაუმარჯოს") {
+
+    <script src='@routes.Assets.at("js/index.coffee")' type="text/javascript"></script>
+
+    <ul id="persons"></ul>
+
     <form action="@routes.Application.addPerson()" method="post">
         <input name="name" type="text">
+        <input name="age" type="text">
         <button>add person</button>
     </form>
 }

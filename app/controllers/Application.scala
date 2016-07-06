@@ -11,19 +11,21 @@ class Application extends Controller {
 
 
   def index = Action {
-    Ok(views.html.index("hello scala"))
+    Ok(views.html.index("Hello Scala"))
   }
 
 
   val personForm : Form[Person] = Form {
     mapping(
-      "name" -> text
+      "name" -> text,
+      "age" -> text
     )(Person.apply)(Person.unapply)
   }
 
   def addPerson = Action { implicit request =>
     val person = personForm.bindFromRequest.get
     DB.save(person)
+
     Redirect(routes.Application.index())
   }
 
