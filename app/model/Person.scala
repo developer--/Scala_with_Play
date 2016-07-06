@@ -3,7 +3,7 @@ package model
 import play.api.libs.json.Json
 
 /**
-  * Created by Master on 7/5/16.
+  * Created by Jemo on 7/5/16.
   * */
 case class Person(name:String, age:String)
 

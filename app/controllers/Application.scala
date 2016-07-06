@@ -24,7 +24,7 @@ class Application extends Controller {
 
   def addPerson = Action { implicit request =>
     val person = personForm.bindFromRequest.get
-    if (!person.name.isEmpty && !person.age.isEmpty()) {
+    if (!person.name.isEmpty && !person.age.isEmpty) {
       DB.save(person)
     }
     Redirect(routes.Application.index())
